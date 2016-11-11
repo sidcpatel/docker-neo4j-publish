@@ -69,6 +69,8 @@ if [ "$1" == "neo4j" ]; then
         setting "dbms.directories.logs" "/logs" neo4j.conf
     fi
 
+    exec gunzip import/*.gz
+
     exec bin/neo4j console
 elif [ "$1" == "dump-config" ]; then
     if [ -d /conf ]; then
